@@ -1,0 +1,21 @@
+docker image ls
+
+docker build -t service-get:latest .
+
+docker run -it service-get sh
+
+docker container ls
+
+docker run -p 3000:3000 -d <image>
+
+docker container stop <>
+
+docker exec -it <container id> /bin/bash
+
+------------
+
+docker volume create <>
+
+docker volume inspect <>
+
+docker run -p 3000:3000 -d --mount source=service-db,target=/usr/src/app/DB  <image>

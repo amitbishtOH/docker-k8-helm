@@ -6,7 +6,11 @@ const app = express();
 const port = 3000;
 
 app.get('/data', async (req, res) => {
-    data = await jsonReader("../DB/db.json")
+    if(!fs.existsSync('./DB/db.json')) {
+        fs.writeFile('./DB/db.json', JSON.stringify({"number":0}), 'utf8', () => {});
+    } 
+
+    data = await jsonReader("./DB/db.json")
     res.json(data.number);
 });
 
