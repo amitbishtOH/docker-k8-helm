@@ -1,3 +1,4 @@
+-----Docker--------
 docker image ls
 
 docker build -t service-get:latest .
@@ -19,3 +20,23 @@ docker volume create <>
 docker volume inspect <>
 
 docker run -p 3000:3000 -d --mount source=service-db,target=/usr/src/app/DB  <image>
+
+---------Helm chart---
+https://github.com/helm/helm/releases
+
+helm create <chart name>
+
+helm install service-two-chart service-one/ --values service-one/values.yaml
+
+------------Ingress Controller---------------
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+helm install nginx-ingress ingress-nginx/ingress-nginx --set controller.publishService.enabled=true
+
+nginx.ingress.kubernetes.io/rewrite-target: /
+----------------------------------------
+
+
+helm upgrade service-one-chart service-one 
+
+helm rollback service-one-chart 1
