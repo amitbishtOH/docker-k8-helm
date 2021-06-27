@@ -8,4 +8,4 @@ app.post('/data', (req, res) => {
     res.json({success: true});
 });
 
-app.listen(port, () => console.log(`node-service-1 app listening on port ${port}!`))
+app.listen(port, () => console.log(`node-service-2 app listening on port ${port}!`))
